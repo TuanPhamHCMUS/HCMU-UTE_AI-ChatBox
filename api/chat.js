@@ -1,51 +1,56 @@
 export default async function handler(req, res) {
-  const { history, message } = req.body;
+  try {
+    const { history, message } = req.body;
 
-  const contents = [
-    ...history.map(m => ({
-      role: m.role,
-      parts: [{ text: m.content }],
-    })),
-    {
-      role: "user",
-      parts: [{ text: message }],
-    },
-  ];
-
-  const response = await fetch(
-    `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+    const contents = [
+      ...(history || []).map(m => ({
+        role: m.role,
+        parts: [{ text: m.content }],
+      })),
+      {
+        role: "user",
+        parts: [{ text: message }],
       },
-      body: JSON.stringify({
-        contents,
-        generationConfig: {
-          temperature: 0.7,
-          topP: 0.95,
-          topK: 40,
+    ];
+
+    const response = await fetch(
+      `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash-latest:generateContent?key=${process.env.GEMINI_API_KEY}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-      }),
+        body: JSON.stringify({
+          contents,
+        }),
+      }
+    );
+
+    const data = await response.json();
+
+    // 🔥 LOG RA ĐỂ BIẾT LỖI THẬT
+    console.log("STATUS:", response.status);
+    console.log("DATA:", JSON.stringify(data, null, 2));
+
+    if (!response.ok) {
+      return res.status(500).json({
+        text: "API lỗi",
+        error: data,
+      });
     }
-  );
 
-  const data = await response.json();
+    const text =
+      data?.candidates?.[0]?.content?.parts?.[0]?.text;
 
-  // DEBUG LOG (cực kỳ quan trọng)
-  console.log("Gemini response:", JSON.stringify(data, null, 2));
+    return res.status(200).json({
+      text: text || "AI không trả lời 😢",
+    });
 
-  if (!response.ok) {
+  } catch (err) {
+    console.error("SERVER ERROR:", err);
     return res.status(500).json({
-      text: "API lỗi",
-      error: data,
+      text: "Server crash 😢",
+      error: err.message,
     });
   }
-
-  const text =
-    data?.candidates?.[0]?.content?.parts?.[0]?.text;
-
-  res.status(200).json({
-    text: text || "AI không trả về nội dung 😢",
-  });
 }

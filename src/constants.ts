@@ -1,10 +1,11 @@
 import { Chapter } from './types';
 
-export const SYSTEM_INSTRUCTION = `Bạn là 'ChatBox Trợ giảng Tư tưởng Hồ Chí Minh' chuyên nghiệp cho môn học Tư tưởng Hồ Chí Minh tại Trường Đại học Sư phạm Kỹ thuật TP.HCM (HCMUTE).
+export const SYSTEM_INSTRUCTION = `Bạn là 'ChatBox Trợ giảng Tư tưởng Hồ Chí Minh' chuyên nghiệp cho môn học Tư tưởng Hồ Chí Minh tại Trường Đại học Sư phạm Kỹ thuật TP.HCM (HCMUTE), do TS. Nguyễn Thị Phượng phụ trách.
 
 Hành vi và Quy tắc:
 1. Chào hỏi và Hỗ trợ:
 - Luôn bắt đầu bằng lời chào thân thiện, tự giới thiệu là 'ChatBox Trợ giảng Tư tưởng Hồ Chí Minh'.
+- Nhắc đến việc môn học được phụ trách bởi TS. Nguyễn Thị Phượng khi phù hợp.
 - Hỏi sinh viên về vấn đề cụ thể mà họ đang gặp phải hoặc chương nào trong môn học họ cần làm rõ.
 - Đối với các câu hỏi lặp đi lặp lại, hãy cung cấp câu trả lời súc tích, dễ hiểu và có cấu trúc rõ ràng.
 
@@ -29,34 +30,34 @@ Thông tin về HCMUTE:
 
 export const CHAPTERS: Chapter[] = [
   {
-    id: 'intro',
-    title: 'Chương mở đầu',
-    description: 'Đối tượng, phương pháp nghiên cứu và ý nghĩa học tập môn Tư tưởng Hồ Chí Minh.'
-  },
-  {
     id: 'ch1',
     title: 'Chương 1',
-    description: 'Cơ sở, quá trình hình thành và phát triển Tư tưởng Hồ Chí Minh.'
+    description: 'Khái niệm, đối tượng, phương pháp nghiên cứu và ý nghĩa học tập môn tư tưởng Hồ Chí Minh'
   },
   {
     id: 'ch2',
     title: 'Chương 2',
-    description: 'Tư tưởng Hồ Chí Minh về độc lập dân tộc và chủ nghĩa xã hội.'
+    description: 'Cơ sở, quá trình hình thành và phát triển tư tưởng Hồ Chí Minh'
   },
   {
     id: 'ch3',
     title: 'Chương 3',
-    description: 'Tư tưởng Hồ Chí Minh về Đảng Cộng sản Việt Nam và Nhà nước của nhân dân, do nhân dân, vì nhân dân.'
+    description: 'Tư tưởng Hồ Chí Minh về độc lập dân tộc và chủ nghĩa xã hội'
   },
   {
     id: 'ch4',
     title: 'Chương 4',
-    description: 'Tư tưởng Hồ Chí Minh về đại đoàn kết toàn dân tộc và đoàn kết quốc tế.'
+    description: 'Tư tưởng Hồ Chí Minh về Đảng cộng sản Việt Nam và nhà nước của nhân dân, do nhân dân, vì nhân dân'
   },
   {
     id: 'ch5',
     title: 'Chương 5',
-    description: 'Tư tưởng Hồ Chí Minh về văn hóa, đạo đức, con người.'
+    description: 'Tư tưởng Hồ Chí Minh về đại đoàn kết toàn dân tộc và đoàn kết quốc tế'
+  },
+  {
+    id: 'ch6',
+    title: 'Chương 6',
+    description: 'Tư tưởng Hồ Chí Minh về văn hóa, đạo đức, con người'
   }
 ];
 

@@ -6,10 +6,11 @@
   --font-serif: "Cormorant Garamond", serif;
   --font-display: "Libre Baskerville", serif;
 
-  --color-paper: #f5f5f0;
-  --color-ink: #1a1a1a;
-  --color-accent: #5A5A40; /* Olive accent */
-  --color-accent-light: #8B8B6B;
+  --color-paper: #f8fafc;
+  --color-ink: #0f172a;
+  --color-accent: #0054a6; /* HCMUTE Blue */
+  --color-accent-light: #0070da;
+  --color-gold: #fdb913; /* HCMUTE Gold */
 }
 
 body {

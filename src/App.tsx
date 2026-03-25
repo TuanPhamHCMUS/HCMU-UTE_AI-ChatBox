@@ -27,7 +27,7 @@ export default function App() {
     {
       id: 'welcome',
       role: 'model',
-      content: 'Chào bạn! Tôi là **ChatBox Trợ giảng Tư tưởng Hồ Chí Minh** tại HCMUTE. Rất vui được hỗ trợ bạn trong quá trình học tập môn học này.\n\nBạn đang gặp khó khăn ở chương nào hay có vấn đề cụ thể nào cần tôi giải đáp không?',
+      content: 'Chào bạn! Tôi là **ChatBox Trợ giảng Tư tưởng Hồ Chí Minh** tại HCM-UTE, do **TS. Nguyễn Thị Phượng** phụ trách. Rất vui được hỗ trợ bạn trong quá trình học tập môn học này.\n\nBạn đang gặp khó khăn ở chương nào hay có vấn đề cụ thể nào cần tôi giải đáp không?',
       timestamp: Date.now()
     }
   ]);
@@ -100,19 +100,19 @@ export default function App() {
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
             className={`fixed lg:relative z-40 w-80 h-full bg-white border-r border-ink/10 flex flex-col shadow-xl lg:shadow-none`}
           >
-            <div className="p-6 border-bottom border-ink/5 flex items-center justify-between">
+            <div className="p-6 border-b border-ink/5 flex items-center justify-between bg-accent text-white">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-white">
+                <div className="w-10 h-10 bg-gold rounded-full flex items-center justify-center text-accent shadow-sm">
                   <GraduationCap size={24} />
                 </div>
                 <div>
-                  <h2 className="display text-lg font-bold leading-tight">HCMUTE</h2>
-                  <p className="text-[10px] uppercase tracking-widest opacity-60">Virtual Assistant</p>
+                  <h2 className="display text-lg font-bold leading-tight text-white">HCMUTE</h2>
+                  <p className="text-[10px] uppercase tracking-widest text-gold font-bold">Virtual Assistant</p>
                 </div>
               </div>
               <button 
                 onClick={() => setIsSidebarOpen(false)}
-                className="lg:hidden p-2 hover:bg-paper rounded-full transition-colors"
+                className="lg:hidden p-2 hover:bg-white/10 rounded-full transition-colors"
               >
                 <X size={20} />
               </button>
@@ -122,7 +122,7 @@ export default function App() {
               {/* Chapters */}
               <section>
                 <div className="flex items-center gap-2 mb-4 px-2">
-                  <BookOpen size={16} className="text-accent" />
+                  <BookOpen size={16} className="text-gold" />
                   <h3 className="text-xs uppercase font-bold tracking-wider opacity-50">Chương trình học</h3>
                 </div>
                 <div className="space-y-1">
@@ -130,14 +130,14 @@ export default function App() {
                     <button
                       key={chapter.id}
                       onClick={() => handleQuickAction(`Hãy giải thích nội dung chính của ${chapter.title}: ${chapter.description}`)}
-                      className="w-full text-left p-3 rounded-xl hover:bg-paper group transition-all duration-200 border border-transparent hover:border-accent/10"
+                      className="w-full text-left p-3 rounded-xl hover:bg-accent/5 group transition-all duration-200 border border-transparent hover:border-accent/10"
                     >
                       <div className="flex items-start justify-between">
                         <div>
                           <p className="text-sm font-semibold group-hover:text-accent transition-colors">{chapter.title}</p>
                           <p className="text-[11px] opacity-60 line-clamp-1">{chapter.description}</p>
                         </div>
-                        <ChevronRight size={14} className="opacity-0 group-hover:opacity-40 transition-opacity mt-1" />
+                        <ChevronRight size={14} className="opacity-0 group-hover:opacity-40 transition-opacity mt-1 text-gold" />
                       </div>
                     </button>
                   ))}
@@ -147,7 +147,7 @@ export default function App() {
               {/* FAQs */}
               <section>
                 <div className="flex items-center gap-2 mb-4 px-2">
-                  <HelpCircle size={16} className="text-accent" />
+                  <HelpCircle size={16} className="text-gold" />
                   <h3 className="text-xs uppercase font-bold tracking-wider opacity-50">Câu hỏi thường gặp</h3>
                 </div>
                 <div className="space-y-2">
@@ -155,7 +155,7 @@ export default function App() {
                     <button
                       key={index}
                       onClick={() => handleQuickAction(faq)}
-                      className="w-full text-left p-3 text-xs bg-paper/50 rounded-lg border border-ink/5 hover:border-accent/30 hover:bg-white transition-all"
+                      className="w-full text-left p-3 text-xs bg-accent/5 rounded-lg border border-accent/10 hover:border-gold/50 hover:bg-white transition-all"
                     >
                       {faq}
                     </button>
@@ -166,11 +166,11 @@ export default function App() {
               {/* About */}
               <section>
                 <div className="flex items-center gap-2 mb-4 px-2">
-                  <Info size={16} className="text-accent" />
+                  <Info size={16} className="text-gold" />
                   <h3 className="text-xs uppercase font-bold tracking-wider opacity-50">Về trợ giảng</h3>
                 </div>
                 <div className="p-4 bg-white border border-ink/5 rounded-2xl text-xs leading-relaxed space-y-2">
-                  <p>Hệ thống hỗ trợ học tập thông minh dành riêng cho sinh viên HCMUTE.</p>
+                  <p>Hệ thống hỗ trợ học tập thông minh dành riêng cho sinh viên HCM-UTE.</p>
                   <p>Dữ liệu được cập nhật theo giáo trình mới nhất của Bộ GD&ĐT.</p>
                 </div>
               </section>
@@ -178,8 +178,8 @@ export default function App() {
               {/* Info */}
               <section className="bg-accent/5 p-4 rounded-2xl border border-accent/10">
                 <div className="flex items-center gap-2 mb-2">
-                  <Info size={14} className="text-accent" />
-                  <h4 className="text-[11px] font-bold uppercase tracking-wider text-accent">Lưu ý</h4>
+                  <Info size={14} className="text-gold" />
+                  <h4 className="text-[11px] font-bold uppercase tracking-wider text-gold">Lưu ý</h4>
                 </div>
                 <p className="text-[11px] leading-relaxed opacity-70 italic">
                   Thông tin hành chính chỉ mang tính tham khảo. Vui lòng kiểm tra tại hcmute.edu.vn để có độ chính xác tuyệt đối.
@@ -197,13 +197,18 @@ export default function App() {
           <div className="flex items-center gap-4">
             <button 
               onClick={() => setIsSidebarOpen(true)}
-              className="lg:hidden p-2 -ml-2 hover:bg-paper rounded-full transition-colors"
+              className="lg:hidden p-2 -ml-2 hover:bg-accent/10 rounded-full transition-colors text-accent"
             >
               <Menu size={20} />
             </button>
-            <h1 className="serif text-xl md:text-2xl font-bold text-accent">Tư tưởng Hồ Chí Minh</h1>
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center text-gold shadow-sm md:hidden">
+                <GraduationCap size={18} />
+              </div>
+              <h1 className="serif text-xl md:text-2xl font-bold text-accent">HCM-UTE ChatBox AI</h1>
+            </div>
           </div>
-          <div className="hidden md:flex items-center gap-2 px-3 py-1 bg-accent/10 rounded-full">
+          <div className="hidden md:flex items-center gap-2 px-3 py-1 bg-gold/20 rounded-full border border-gold/30">
             <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
             <span className="text-[10px] font-bold uppercase tracking-widest text-accent">Trợ giảng Online</span>
           </div>
@@ -228,7 +233,7 @@ export default function App() {
                   <div className={`p-4 rounded-2xl shadow-sm ${
                     message.role === 'user' 
                       ? 'bg-accent text-white rounded-tr-none' 
-                      : 'bg-white border border-ink/5 rounded-tl-none'
+                      : 'bg-white border border-gold/20 rounded-tl-none border-l-4 border-l-gold'
                   }`}>
                     <div className={`markdown-body text-sm ${message.role === 'user' ? 'text-white' : 'text-ink'}`}>
                       <ReactMarkdown>{message.content}</ReactMarkdown>
@@ -250,10 +255,10 @@ export default function App() {
                   <div className="w-8 h-8 rounded-full bg-white border border-ink/10 flex items-center justify-center text-accent">
                     <Bot size={16} />
                   </div>
-                  <div className="bg-white border border-ink/5 p-4 rounded-2xl rounded-tl-none shadow-sm flex gap-1">
-                    <span className="w-1.5 h-1.5 bg-accent/40 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></span>
-                    <span className="w-1.5 h-1.5 bg-accent/40 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></span>
-                    <span className="w-1.5 h-1.5 bg-accent/40 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></span>
+                  <div className="bg-white border border-gold/20 p-4 rounded-2xl rounded-tl-none border-l-4 border-l-gold shadow-sm flex gap-1">
+                    <span className="w-1.5 h-1.5 bg-gold/60 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></span>
+                    <span className="w-1.5 h-1.5 bg-gold/60 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></span>
+                    <span className="w-1.5 h-1.5 bg-gold/60 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></span>
                   </div>
                 </div>
               </motion.div>
@@ -274,7 +279,7 @@ export default function App() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Nhập câu hỏi của bạn về môn học..."
-                className="flex-1 bg-white border border-ink/10 rounded-2xl px-5 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent transition-all shadow-sm"
+                className="flex-1 bg-white border border-ink/10 rounded-2xl px-5 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-gold/20 focus:border-gold transition-all shadow-sm"
               />
               <button
                 type="submit"
@@ -285,7 +290,7 @@ export default function App() {
               </button>
             </form>
             <p className="text-[10px] text-center mt-3 opacity-40 uppercase tracking-widest font-bold">
-              Hỗ trợ sinh viên HCMUTE • 2026
+              Hỗ trợ sinh viên HCM-UTE • 2026
             </p>
           </div>
         </div>
